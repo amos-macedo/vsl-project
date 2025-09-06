@@ -10,7 +10,7 @@ export const SectionHistory = () => {
       id="history"
       className="flex  w-full  mt-20 bg-[#FAFAFBFF] container items-center justify-center  py-20"
     >
-      <div className="flex flex-col-reverse md:flex-direction-normal  md:flex-row max-w-5xl w-full h-full items-center gap-10 justify-between">
+      <div className="flex flex-col-reverse md:flex-direction-normal  md:flex-row md:max-w-[70em] w-full h-full items-center gap-10 justify-between">
         <div className="md:w-1/2 w-full p-6 md:p-0 flex flex-col gap-5 ">
           <h1 className=" text-3xl font-bold">{data.home.history.title}</h1>
           <p className="space-y-4 text-slate-500  text-md">

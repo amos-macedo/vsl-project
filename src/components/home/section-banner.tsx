@@ -10,7 +10,7 @@ export const SectionBanner = () => {
       id="home"
       className="flex  w-full  mt-20 bg-[#F5FBF4FF] container items-center justify-center gap-10 py-20"
     >
-      <div className="flex max-w-4xl w-full h-full items-center gap-5 justify-center">
+      <div className="flex md:max-w-[70em] w-full h-full items-center gap-5 justify-center">
         <div className="w-1/2 flex flex-col gap-5 ">
           <h1 className="md:text-6xl text-xl font-bold">
             {data.home.banner.title}
