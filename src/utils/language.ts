@@ -1,7 +1,7 @@
-import { Description } from "@radix-ui/react-dialog";
-import { url } from "inspector";
+"use client";
 import { FlaskConical, Leaf, ShieldCheck } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+
 
 export const useGetLanguageData = () => {
   const searchParams = useSearchParams();

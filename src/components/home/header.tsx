@@ -1,10 +1,11 @@
+"use client";
 import { useGetLanguageData } from "@/utils/language";
 import ButtonLg from "../button-lg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-export const HeaderHome = () => {
+export const Header = () => {
   const textData = useGetLanguageData();
   const [selectedLink, setSelectedLink] = useState("#home");
   const [showMobileButton, setShowMobileButton] = useState(false);
