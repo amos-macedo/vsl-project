@@ -6,7 +6,10 @@ import { Button } from "../ui/button";
 export const SectionBanner = () => {
   const data = useGetLanguageData();
   return (
-    <section className="flex  w-full  mt-20 bg-[#F5FBF4FF] container items-center justify-center gap-10 py-20">
+    <section
+      id="home"
+      className="flex  w-full  mt-20 bg-[#F5FBF4FF] container items-center justify-center gap-10 py-20"
+    >
       <div className="flex max-w-4xl w-full h-full items-center gap-5 justify-center">
         <div className="w-1/2 flex flex-col gap-5 ">
           <h1 className="md:text-6xl text-xl font-bold">

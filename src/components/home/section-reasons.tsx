@@ -6,7 +6,7 @@ import { IconCard } from "../icon-card";
 export const SectionReasons = () => {
   const data = useGetLanguageData();
   return (
-    <section className=" bg-[#FAFAFBFF]  w-full  mt-20   py-20 ">
+    <section id="reasons" className=" bg-[#FAFAFBFF]  w-full  mt-20   py-20 ">
       <div className="flex  flex-col  w-full   container items-center justify-center gap-10 max-w-4xl mx-auto">
         <h1 className="md:text-3xl text-xl font-bold">
           {data.home.reasons.title}

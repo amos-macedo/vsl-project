@@ -44,7 +44,7 @@ export const Header = () => {
   return (
     <div
       className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 bg-white shadow ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
+        isVisible || showMobileButton ? "translate-y-0" : "-translate-y-full"
       }`}
     >
       <div className="flex w-full justify-between items-center p-3 border-b border-gray-100">

@@ -11,6 +11,7 @@ export const useGetLanguageData = () => {
 };
 
 const PtData = {
+  lang: "pt",
   home: {
     menu: {
       home: "Home",
@@ -55,64 +56,79 @@ const PtData = {
         },
     ],
     },
-
-
+    products: {
+      title: "Nossos produtos premium",
+    },
+    history: {
+      title: "De uma pequena farmácia a líder em inovação",
+      description:  `Fundada em 1985, a BioPharma começou como uma pequena farmácia familiar em uma cidade do interior, com a missão de oferecer medicamentos de qualidade e atendimento próximo à comunidade. Nos primeiros anos, enfrentamos diversos desafios, desde limitações de estoque até a necessidade de conquistar a confiança dos clientes. Com dedicação e foco em excelência, iniciamos investimentos em pesquisa e desenvolvimento, ampliando nossa linha de medicamentos genéricos e introduzindo práticas inovadoras de produção e controle de qualidade. Ao longo das décadas, expandimos nossas operações para diversas cidades e conquistamos reconhecimento nacional, sempre mantendo os valores de transparência,  responsabilidade \n e cuidado com a saúde. Hoje, a BioPharma é referência em soluções farmacêuticas, combinando tradição e inovação para atender milhões de pessoas com segurança e eficiência.`,
+      url: "/history-img.png"
+    }
   },
+
 products: [
   {
+    id: "simbor-1",
     name: "Simbor",
     description:
-      "O Simbor é uma linha de produtos farmacêuticos de alta qualidade, desenvolvida para atender às necessidades de cuidados com a saúde e bem-estar de indivíduos.",
+      "Simbor é uma linha de produtos farmacêuticos de alta qualidade",
     price: 45.99,
-    url: "/simbor.png",
+    url: "/product.png",
     avaliation: 4,
   },
   {
+    id: "nutravita-2",
     name: "NutraVita",
     description:
-      "Suplemento vitamínico completo que auxilia no fortalecimento do sistema imunológico e na manutenção da energia diária.",
+      "Simbor é uma linha de produtos farmacêuticos de alta qualidade",
     price: 59.9,
-    url: "/nutravita.png",
+    url: "/product.png",
     avaliation: 5,
   },
   {
+    id: "herbalcare-3",
     name: "HerbalCare",
     description:
-      "Produto natural à base de ervas medicinais, ideal para promover relaxamento e melhorar a qualidade do sono.",
+      "Simbor é uma linha de produtos farmacêuticos de alta qualidade",
     price: 34.5,
-    url: "/herbalcare.png",
+    url: "/product.png",
     avaliation: 3,
   },
   {
+    id: "omegaplus-4",
     name: "OmegaPlus",
     description:
-      "Rico em ômega-3, auxilia na saúde cardiovascular e no bom funcionamento do cérebro.",
+      "Simbor é uma linha de produtos farmacêuticos de alta qualidade",
     price: 72.0,
-    url: "/omegaplus.png",
+    url: "/product.png",
     avaliation: 5,
   },
   {
+    id: "calcistrong-5",
     name: "CalciStrong",
     description:
-      "Suplemento de cálcio e vitamina D, desenvolvido para fortalecer ossos e dentes.",
+      "Suplemento de cálcio e vitamina D.",
     price: 39.99,
-    url: "/calcistrong.png",
-    avaliation: 4,
+    url: "/product.png",
+    avaliation: 4.5,
   },
   {
+    id: "probiomax-6",
     name: "Probiomax",
     description:
-      "Fórmula avançada de probióticos para equilíbrio da flora intestinal e melhora da digestão.",
+      "Simbor é uma linha de produtos farmacêuticos de alta qualidade",
     price: 64.5,
-    url: "/probiomax.png",
+    url: "/product.png",
     avaliation: 4,
   },
 ]
+  
 
   
 };
 
 const EnData = {
+  lang: "en",
   home: {
     menu: {
       home: "Home",
@@ -158,56 +174,72 @@ const EnData = {
         },
     ],
     },
+    products: {
+      title: "Our premium products",
+    },
+    history: {
+      title: "From a Small Pharmacy to a Leader in Innovation",
+      description: "Founded in 1985, BioPharma began as a small family-run pharmacy in a provincial town, with the mission of providing high-quality medicines and personalized care to the community. In the early years, the company faced numerous challenges, from limited stock to building customer trust. Through dedication and a focus on excellence, BioPharma began investing in research and development, expanding its line of generic medicines and introducing innovative practices in production and quality control. Over the decades, the company expanded its operations to multiple cities and gained national recognition, always upholding values of transparency, responsibility, and care for health. Today, BioPharma is a benchmark in pharmaceutical solutions, blending tradition and innovation to safely and efficiently serve millions of people.",
+      url: "/history-img.png"
+    }
+
   },
-  products: [
+products: [
   {
+    id: "simbor-1",
     name: "Simbor",
     description:
-      "Simbor is a line of high-quality pharmaceutical products, developed to meet the health and wellness needs of individuals.",
+      "Simbor is a line of high-quality pharmaceutical products",
     price: 45.99,
-    url: "/simbor.png",
+    url: "/product.png",
     avaliation: 4,
   },
   {
+    id: "nutravita-2",
     name: "NutraVita",
     description:
-      "A complete multivitamin supplement that helps strengthen the immune system and maintain daily energy.",
+      "Simbor is a line of high-quality pharmaceutical products",
     price: 59.9,
-    url: "/nutravita.png",
+    url: "/product.png",
     avaliation: 5,
   },
   {
+    id: "herbalcare-3",
     name: "HerbalCare",
     description:
-      "A natural product made from medicinal herbs, ideal for promoting relaxation and improving sleep quality.",
+      "Simbor is a line of high-quality pharmaceutical products",
     price: 34.5,
-    url: "/herbalcare.png",
+    url: "/product.png",
     avaliation: 3,
   },
   {
+    id: "omegaplus-4",
     name: "OmegaPlus",
     description:
-      "Rich in omega-3, it supports cardiovascular health and proper brain function.",
+      "Simbor is a line of high-quality pharmaceutical products",
     price: 72.0,
-    url: "/omegaplus.png",
+    url: "/product.png",
     avaliation: 5,
   },
   {
+    id: "calcistrong-5",
     name: "CalciStrong",
     description:
-      "Calcium and vitamin D supplement, developed to strengthen bones and teeth.",
+      "Simbor is a line of high-quality pharmaceutical products",
     price: 39.99,
-    url: "/calcistrong.png",
-    avaliation: 4,
+    url: "/product.png",
+    avaliation: 4.5,
   },
   {
+    id: "probiomax-6",
     name: "Probiomax",
     description:
-      "An advanced probiotic formula for balancing intestinal flora and improving digestion.",
+      "Simbor is a line of high-quality pharmaceutical products",
     price: 64.5,
-    url: "/probiomax.png",
+    url: "/product.png",
     avaliation: 4,
   },
 ]
+
 
 };
