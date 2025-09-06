@@ -36,9 +36,19 @@ export const Header = () => {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const handleTouchMove = () => {
+      if (window.scrollY === 0) {
+        setIsVisible(true);
+      }
+    };
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("touchmove", handleTouchMove);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchmove", handleTouchMove);
+    };
   }, [lastScrollY]);
 
   return (
