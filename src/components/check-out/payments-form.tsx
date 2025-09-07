@@ -50,7 +50,7 @@ export const PaymentsForm = ({
         <div>{data.cardNumber.label}</div>
         <input
           className="w-full my-2 px-3 py-2 rounded-md border border-gray-300"
-          type="number"
+          type="text"
           name="number"
           maxLength={16}
           placeholder={data.cardNumber.placeholder}
@@ -63,8 +63,8 @@ export const PaymentsForm = ({
         <div>{data.cardName.label}</div>
         <input
           className="w-full my-2 px-3 py-2 rounded-md border border-gray-300"
-          type="name"
-          name="text"
+          type="text"
+          name="name"
           placeholder={data.cardName.placeholder}
           required
           onChange={handleChange}
@@ -89,15 +89,15 @@ export const PaymentsForm = ({
           <div>{data.cvv.label}</div>
           <input
             className="w-full my-2 px-3 py-2 rounded-md border border-gray-300"
-            type="number"
+            type="text"
             name="cvv"
-            maxLength={3}
+            maxLength={3} // funciona agora
             placeholder={data.cvv.placeholder}
             required
             onChange={(e) => {
               const limited = e.target.value.slice(0, 3);
               e.target.value = limited;
-              handleChange(); // envia pro pai
+              handleChange();
             }}
           />
         </div>
