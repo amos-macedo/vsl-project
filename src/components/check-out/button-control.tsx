@@ -1,0 +1,46 @@
+"use client";
+
+import { useGetLanguageData } from "@/utils/language";
+import { Button } from "../ui/button";
+import { useRouter, useSearchParams } from "next/navigation";
+
+type ProductCardProps = {
+  onBuy: () => void;
+};
+
+export const ButtonControl = () => {
+  const allData = useGetLanguageData();
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const currentLang = searchParams.get("lang");
+  const handleBuy = () => {
+    alert("Compra realizada com sucesso!");
+    handleReturn();
+  };
+
+  const handleReturn = () => {
+    router.push(`/${currentLang ? `?lang=${currentLang}` : ""}`, {
+      scroll: false,
+    });
+  };
+
+  return (
+    <div className="w-full flex flex-col gap-3 ">
+      <Button
+        onClick={handleBuy}
+        className="bg-[#499537FF] hover:bg-[#3a7d2f] w-full "
+      >
+        {allData.checkOut.button}
+      </Button>
+      <Button
+        onClick={handleReturn}
+        variant="outline"
+        className="w-full  border-gray-400 text-gray-700 hover:border-[#499537FF] hover:text-[#499537FF]"
+      >
+        {allData.checkOut.return}
+      </Button>
+    </div>
+  );
+};
