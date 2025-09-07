@@ -1,12 +1,11 @@
 "use client";
-import { Facebook, FlaskConical, Instagram, Leaf, Linkedin, Phone, ShieldCheck, Subtitles, Twitter } from "lucide-react";
+import { Facebook, FlaskConical, Instagram, Leaf, Linkedin, ShieldCheck, Twitter } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import { title } from "process";
 
 
 export const useGetLanguageData = () => {
   const searchParams = useSearchParams();
-  const lang = searchParams.get("lang");
+  const lang = searchParams.get("lang") || "pt";
   if (lang === "pt") return PtData;
   return EnData;
 };

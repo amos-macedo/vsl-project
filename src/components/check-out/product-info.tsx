@@ -1,24 +1,34 @@
 "use client";
 
 import { useGetLanguageData } from "@/utils/language";
-import { useSearchParams } from "next/navigation";
-import { Button } from "../ui/button";
-import { ButtonControl } from "./button-control";
 
-export const ProductInfo = () => {
+export type ProductType = {
+  id: string;
+  name: string;
+  price: number;
+  url: string;
+  description: string;
+  avaliation: number;
+};
+
+type ProductCardProps = {
+  children?: React.ReactNode;
+  product: ProductType;
+};
+
+export const ProductInfo = ({ children, product }: ProductCardProps) => {
   const allData = useGetLanguageData();
-  const productId = useSearchParams().get("id");
 
   const lang = allData.lang;
   const data = allData.checkOut.productDetails;
-  const product = allData.products.find((product) => product.id === productId);
+  //   const product = allData.products.find((product) => product.id === productId);
 
   const productPrice = product?.price || 0;
   const shippingPrice = data.shipping?.price || 0;
   const total = productPrice + shippingPrice;
 
   return (
-    <div className="w-full md:max-w-1/3 mx-auto rounded-2xl  bg-white ">
+    <div className="w-full md:max-w-1/3 mx-auto rounded-lg   bg-white md:border border-slate-100 md:p-10">
       {/* Título */}
       <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
         {data.title}
@@ -80,7 +90,8 @@ export const ProductInfo = () => {
 
       {/* Botões */}
       <div className="hidden md:block">
-        <ButtonControl />
+        {children}
+        {/* <ButtonControl /> */}
       </div>
     </div>
   );

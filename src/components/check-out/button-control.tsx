@@ -5,21 +5,16 @@ import { Button } from "../ui/button";
 import { useRouter, useSearchParams } from "next/navigation";
 
 type ProductCardProps = {
-  onBuy: () => void;
+  onBuy?: () => void;
 };
 
-export const ButtonControl = () => {
+export const ButtonControl = ({ onBuy }: ProductCardProps) => {
   const allData = useGetLanguageData();
 
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const currentLang = searchParams.get("lang");
-  const handleBuy = () => {
-    alert("Compra realizada com sucesso!");
-    handleReturn();
-  };
-
   const handleReturn = () => {
     router.push(`/${currentLang ? `?lang=${currentLang}` : ""}`, {
       scroll: false,
@@ -29,7 +24,7 @@ export const ButtonControl = () => {
   return (
     <div className="w-full flex flex-col gap-3 ">
       <Button
-        onClick={handleBuy}
+        onClick={onBuy}
         className="bg-[#499537FF] hover:bg-[#3a7d2f] w-full "
       >
         {allData.checkOut.button}
