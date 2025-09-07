@@ -1,5 +1,4 @@
 "use client";
-
 import { useGetLanguageData } from "@/utils/language";
 
 type AnddressType = {
@@ -18,7 +17,7 @@ export const ShippingSummary = ({ address }: ProductCardProps) => {
   const lang = allData.lang;
 
   return (
-    <div className="w-full mx-auto rounded-lg  text-[#171A1FFF] bg-white md:border border-slate-200 shadow-xs md:p-10">
+    <div className="w-full mx-auto rounded-lg text-[#171A1FFF] bg-white md:border border-slate-200 shadow-xs p-6 md:p-10">
       <h1 className="text-md md:text-lg font-semibold  mb-6">
         {lang === "pt" ? "Endereço de Entrega" : "Shipping Address"}
       </h1>

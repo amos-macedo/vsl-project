@@ -30,7 +30,10 @@ export const PaymentsForm = ({
   const [checked, setChecked] = useState(false);
 
   return (
-    <form className="flex flex-col text-xs gap-4 w-full md:border border-slate-100 md:p-10 rounded-lg">
+    <form
+      ref={formRef}
+      className="flex flex-col text-xs gap-4 w-full md:border border-slate-100 md:p-10 rounded-lg"
+    >
       <h1 className="md:text-3xl text-xl font-bold">{data.title}</h1>
 
       <div className="flex gap-1">
