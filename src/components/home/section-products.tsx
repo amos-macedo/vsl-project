@@ -2,9 +2,15 @@
 
 import { useGetLanguageData } from "@/utils/language";
 import { ProductCarrosel } from "../product-carrosel";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export const SectionProducts = ({ id }: { id?: string }) => {
   const data = useGetLanguageData();
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const currentLang = searchParams.get("lang");
 
   return (
     <section id="products" className="bg-white  w-full  mt-20   py-20 ">
@@ -16,7 +22,10 @@ export const SectionProducts = ({ id }: { id?: string }) => {
         <ProductCarrosel
           id={id}
           onClick={(id) => {
-            alert(id);
+            router.push(
+              `/check-out?id=${id}${currentLang ? `&lang=${currentLang}` : ""}`,
+              { scroll: false }
+            );
           }}
         />
       </div>

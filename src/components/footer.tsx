@@ -25,24 +25,15 @@ export const Footer = () => {
           <div className="flex flex-col gap-2 max-w-[17em] items-center md:items-start">
             <img src="/logo.png" alt="Logo" className="w-8 h-8" />
             <p className="text-center md:text-left">
-              {" "}
-              NutraPage VSL offers premium nutraceutical products designed for
-              your optimal health and wellness...{" "}
+              {textData.footer.description}
             </p>
 
             <div className="flex gap-4">
-              <a target="_blank" href="https://www.instagram.com/">
-                <Instagram size={16} />
-              </a>
-              <a target="_blank" href="https://www.facebook.com/">
-                <Facebook size={16} />
-              </a>
-              <a target="_blank" href="https://twitter.com/">
-                <Twitter size={16} />{" "}
-              </a>
-              <a target="_blank" href="https://www.linkedin.com/">
-                <Linkedin size={16} />{" "}
-              </a>
+              {textData.footer.socials.map((social, index) => (
+                <a target="_blank" key={index} href={social.url}>
+                  <social.icon size={16} className="hover:text-green-700" />
+                </a>
+              ))}
             </div>
           </div>
 

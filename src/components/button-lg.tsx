@@ -1,7 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface Language {
   label: string;
@@ -26,10 +26,20 @@ export default function ButtonLg() {
     setLanguage(selected);
   }, [searchParams]);
 
+  const pathname = usePathname();
+
   const handleLanguageChange = (lang: Language) => {
+    // Clona os parâmetros atuais
+    const params = new URLSearchParams(searchParams.toString());
+
+    // Atualiza apenas o lang
+    params.set("lang", lang.value);
+
+    // Mantém a mesma rota
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+
     setLanguage(lang);
     setShowOptions(false);
-    router.push(`/?lang=${lang.value}`, { scroll: false });
   };
 
   return (

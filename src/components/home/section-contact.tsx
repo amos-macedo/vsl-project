@@ -1,8 +1,7 @@
 "use client";
-
 import { useGetLanguageData } from "@/utils/language";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { Form } from "../form";
+import { ContactForm } from "../contact-form";
 
 export const SectionContact = () => {
   const data = useGetLanguageData();
@@ -32,7 +31,7 @@ export const SectionContact = () => {
           </div>
         </div>
         <div className="md:w-1/2 w-full p-4 md:p-0">
-          <Form />
+          <ContactForm />
         </div>
       </div>
     </section>

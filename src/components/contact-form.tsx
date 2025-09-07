@@ -1,9 +1,10 @@
+"use client";
 import { useGetLanguageData } from "@/utils/language";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-export const Form = () => {
+export const ContactForm = () => {
   const data = useGetLanguageData();
   const [inputName, setInputName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
@@ -24,17 +25,17 @@ export const Form = () => {
       });
 
       if (res.ok) {
-        toast.success(data.form.status.success);
+        toast.success(data.home.contact.form.status.success);
 
         setInputEmail("");
         setInputMessage("");
         setInputName("");
       } else {
-        toast.error(data.form.status.error);
+        toast.error(data.home.contact.form.status.error);
         // alert(data.form.status.error);
       }
     } catch {
-      toast.error(data.form.status.error);
+      toast.error(data.home.contact.form.status.error);
     }
 
     setIsLoading(false);
@@ -43,12 +44,12 @@ export const Form = () => {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
       <div>
-        <div>{data.form.inputName.label}</div>
+        <div>{data.home.contact.form.inputName.label}</div>
         <input
           className="w-full my-2 px-3 py-2 rounded-md border border-gray-300"
           type="text"
           name="name"
-          placeholder={data.form.inputName.placeholder}
+          placeholder={data.home.contact.form.inputName.placeholder}
           required
           value={inputName}
           onChange={(e) => setInputName(e.target.value)}
@@ -56,12 +57,12 @@ export const Form = () => {
       </div>
 
       <div>
-        <div>{data.form.inputEmail.label}</div>
+        <div>{data.home.contact.form.inputEmail.label}</div>
         <input
           className="w-full my-2 px-3 py-2 rounded-md border border-gray-300"
           type="email"
           name="email"
-          placeholder={data.form.inputEmail.placeholder}
+          placeholder={data.home.contact.form.inputEmail.placeholder}
           value={inputEmail}
           onChange={(e) => setInputEmail(e.target.value)}
           required
@@ -69,11 +70,11 @@ export const Form = () => {
       </div>
 
       <div>
-        <div>{data.form.inputMessage.label}</div>
+        <div>{data.home.contact.form.inputMessage.label}</div>
         <textarea
           name="message"
           className="w-full my-2 min-h-20 px-3 py-2 rounded-md border border-gray-300"
-          placeholder={data.form.inputMessage.placeholder}
+          placeholder={data.home.contact.form.inputMessage.placeholder}
           required
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
@@ -85,7 +86,7 @@ export const Form = () => {
         className="bg-[#499537FF] self-center w-full "
         type="submit"
       >
-        {data.form.button}
+        {data.home.contact.form.button}
       </Button>
     </form>
   );

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-export const Header = () => {
+export const Header = ({ hideMenu }: { hideMenu?: boolean }) => {
   const textData = useGetLanguageData();
   const [selectedLink, setSelectedLink] = useState("#home");
   const [showMobileButton, setShowMobileButton] = useState(false);
@@ -66,21 +66,23 @@ export const Header = () => {
           height={28}
         />
 
-        <div className="md:flex hidden gap-5">
-          {links.map((link) => (
-            <a
-              href={link.link}
-              className="font-semibold hover:text-green-700"
-              style={{
-                color: link.link === selectedLink ? "green" : "black",
-              }}
-              key={link.link}
-              onClick={() => setSelectedLink(link.link)}
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
+        {!hideMenu && (
+          <div className="md:flex hidden gap-5">
+            {links.map((link) => (
+              <a
+                href={link.link}
+                className="font-semibold hover:text-green-700"
+                style={{
+                  color: link.link === selectedLink ? "green" : "black",
+                }}
+                key={link.link}
+                onClick={() => setSelectedLink(link.link)}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        )}
 
         {showMobileButton && (
           <div className="absolute inset-0 z-40 bg-black/30 flex flex-col h-screen w-screen">
@@ -105,12 +107,16 @@ export const Header = () => {
 
         <div className="flex items-center gap-2">
           <ButtonLg />
-          <button
-            onClick={() => setShowMobileButton(!showMobileButton)}
-            className="p-2 z-50 md:hidden rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300"
-          >
-            {showMobileButton ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {!hideMenu && (
+            <>
+              <button
+                onClick={() => setShowMobileButton(!showMobileButton)}
+                className="p-2 z-50 md:hidden rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300"
+              >
+                {showMobileButton ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

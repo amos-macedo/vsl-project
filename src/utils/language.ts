@@ -1,6 +1,7 @@
 "use client";
-import { FlaskConical, Leaf, Phone, ShieldCheck, Subtitles } from "lucide-react";
+import { Facebook, FlaskConical, Instagram, Leaf, Linkedin, Phone, ShieldCheck, Subtitles, Twitter } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import { title } from "process";
 
 
 export const useGetLanguageData = () => {
@@ -73,29 +74,138 @@ const PtData = {
       address: "Rua da Farmácia, 123, Cidade, Estado, País",
       phone: "+1 (800) 123-4567",
       email: "support@nutrapaqevsl.com",
+      form: {
+        title: "Nos envie uma mensagem",
+        inputName: {
+          label: "Nome",
+          placeholder: "Seu nome",
+        },
+        inputEmail: {
+          label: "Email",
+          placeholder: "Seu email",
+        },
+        inputMessage: {
+          label: "Mensagem",
+          placeholder: "Sua mensagem",
+        },
+        button: "Enviar",
+        status:{
+          success: "Mensagem enviada com sucesso!",
+          error: "Erro ao enviar mensagem.",
+        }
+      },
     }
   },
 
-  form: {
-    title: "Nos envie uma mensagem",
-    inputName: {
-      label: "Nome",
+  checkOut: {
+  personalForm: {
+    title: "Informações do Cliente",
+      subtitle: "Insira os detalhes de envio.",
+      inputName: {
+      label: "Nome Completo",
       placeholder: "Seu nome",
     },
     inputEmail: {
-      label: "Email",
+      label: "Endereço de Email",
       placeholder: "Seu email",
     },
-    inputMessage: {
-      label: "Mensagem",
-      placeholder: "Sua mensagem",
+    inputPhone: {
+      label: "Número de Telefone",
+      placeholder: "(11) 99999-9999",
     },
-    button: "Enviar",
-    status:{
-      success: "Mensagem enviada com sucesso!",
-      error: "Erro ao enviar mensagem.",
-    }
+    inputStreetCode: {
+      label: "Endereço",
+      placeholder: "Rua Exemplo, 123",
+    },
+    inputState: {
+      label: "Estado/Província",
+      placeholder: "Selecione o Estado",
+    },
+    inputCountry: {
+      label: "País",
+      placeholder: "Selecione o País",
+    },
+    inputCity: {
+      label: "Cidade",
+      placeholder: "ExemploCity",
+    },
+    inputZipCode: {
+      label: "CEP",
+      placeholder: "12345-678",
+    },
   },
+  productDetails: {
+    title: "Resumo do Pedido",
+    subtotal: "Subtotal",
+    shipping: {
+      title: "Frete",
+      price: 7.50
+    },
+    total: "Total",
+    secure: "Checkout seguro com nossa Garantia de Reembolso de 30 dias.",
+  },
+  paymentForm: {
+    title: "Detalhes de Pagamento",
+    cardsImgs: [
+      "/visa.png",
+      "/visa.png",
+      "/visa.png",
+    ],
+    cardNumber: {
+      label: "Número do Cartão",
+      placeholder: "1234 5678 9012 3456",
+    },
+    cardName: {
+      label: "Nome no Cartão",
+      placeholder: "João Silva",
+    },
+    expiration: {
+      label: "Validade (MM/AA)",
+      placeholder: "MM/AA",
+    },
+    cvv: {
+      label: "CVV",
+      placeholder: "123",
+    },
+    saveInfo: "Salvar informação de pagamento para a próxima compra.",
+  },
+  button: "Finalizar Compra",
+  return: "Voltar para a Página Inicial",
+},
+
+
+
+  footer: {
+  description:
+    "A NutraPage VSL oferece produtos nutracêuticos premium desenvolvidos para o seu bem-estar e saúde ideais...",
+        socials: [
+      {
+        icon: Instagram,
+        url: "https://www.instagram.com/",
+      },
+      {
+        icon: Facebook,
+        url: "https://www.facebook.com/",
+      },
+      {
+        icon: Twitter,
+        url: "https://twitter.com/",
+      },
+      {
+        icon: Linkedin,
+        url: "https://www.linkedin.com/",
+      },
+    ],
+    quickLinks: {
+      title: "Links rápidos",
+    },
+    discover: {
+      title: "Descubra mais",
+      button: "Aprenda mais",
+    },
+  copyright: `© ${new Date().getFullYear()} Seu Nome. Todos os direitos reservados.`,
+  },
+
 
   products: 
   [
@@ -181,8 +291,6 @@ const PtData = {
     },
   ],
   
-
-  
 };
 
 const EnData = {
@@ -249,29 +357,137 @@ const EnData = {
       address: "123 Main Street, Anytown, USA",
       phone: "+1 (800) 123-4567",
       email: "support@nutrapaqevsl.com",
+      form: {
+        title: "Send us a message",
+        inputName: {
+          label: "Name",
+          placeholder: "Your name",
+        },
+        inputEmail: {
+          label: "Email",
+          placeholder: "Your email",
+        },
+        inputMessage: {
+          label: "Message",
+          placeholder: "Your message",
+        },
+        button: "Send",
+        status:{
+          success: "Message sent successfully!",
+          error: "Error sending message.",
+        }
+      },
     },
   },  
 
-  form: {
-    title: "Send us a message",
-    inputName: {
-      label: "Name",
-      placeholder: "Your name",
+  checkOut: {
+    
+    personalForm: {
+      title: "Customer Information",
+      subtitle: "Enter your shipping details.",
+      inputName: {
+        label: "Full Name",
+        placeholder: "Your name",
+      },
+      inputEmail: {
+        label: "Email Address",
+        placeholder: "Your email",
+      },
+      inputPhone: {
+        label: "Phone Number",
+        placeholder: "(555) 555-5555",
+      },
+      inputStreetCode: {
+        label: "Street Code",
+        placeholder: "123 Main St",
+      },
+      inputState: {
+        label: "State/Province",
+        placeholder: "Select State",
+      },
+      inputCountry: {
+        label: "Country",
+        placeholder: "Select Country",
+      },
+      inputCity: {
+        label: "City",
+        placeholder: "Anytown",
+      },
+      inputZipCode: {
+        label: "Zip Code",
+        placeholder: "12345",
+      },
     },
-    inputEmail: {
-      label: "Email",
-      placeholder: "Your email",
+    productDetails: {
+      title: "Order Summary",
+      subtotal: "Subtotal",
+      shipping: {
+        title: "Shipping",
+        price: 7.50
     },
-    inputMessage: {
-      label: "Message",
-      placeholder: "Your message",
+      total: "Total",
+      secure: "Secure checkout backed by our 30-Day Money-Back Guarantee.",
     },
-    button: "Send",
-    status:{
-      success: "Message sent successfully!",
-      error: "Error sending message.",
-    }
+    paymentForm: {
+      title: "Payment Details",
+      cardsImgs: [
+        "/visa.png",
+        "/visa.png",
+        "/visa.png",
+      ],
+      cardNumber: {
+        label: "Card Number",
+        placeholder: "1234 5678 9012 3456",
+      },
+      cardName: {
+        label: "Name on Card",
+        placeholder: "John Mayer",
+      },
+      expiration: {
+        label: "Expiration (MM/YY)",
+        placeholder: "MM/YY",
+      },
+      cvv: {
+        label: "CVV",
+        placeholder: "123",
+      },
+      saveInfo: "Save this information for next time",
+    },
+    button: "Complete Purchase",
+    return: "Return to Home",
   },
+
+  footer: {
+    description:
+      "NutraPage VSL offers premium nutraceutical products designed for your optimal health and wellness...",
+    socials: [
+      {
+        icon: Instagram,
+        url: "https://www.instagram.com/",
+      },
+      {
+        icon: Facebook,
+        url: "https://www.facebook.com/",
+      },
+      {
+        icon: Twitter,
+        url: "https://twitter.com/",
+      },
+      {
+        icon: Linkedin,
+        url: "https://www.linkedin.com/",
+      },
+    ],
+    quickLinks: {
+      title: "Quick links",
+    },
+    discover: {
+      title: "Discover more",
+      button: "Learn more",
+    },
+    copyright: `© ${new Date().getFullYear()} Your Name. All rights reserved.`,
+  },
+
 
 
   products: 
