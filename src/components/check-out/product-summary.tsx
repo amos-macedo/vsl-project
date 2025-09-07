@@ -17,7 +17,7 @@ export const ProductSummary = ({ product }: ProductCardProps) => {
   const total = productPrice + shippingPrice;
 
   return (
-    <div className="w-full mx-auto rounded-lg   bg-white md:border border-slate-100 md:p-10">
+    <div className="w-full mx-auto rounded-lg   bg-white md:border border-slate-100 p-6 md:p-10">
       <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-6">
         {data.title}
       </h1>
