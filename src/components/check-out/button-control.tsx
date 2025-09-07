@@ -3,6 +3,7 @@
 import { useGetLanguageData } from "@/utils/language";
 import { Button } from "../ui/button";
 import { useRouter, useSearchParams } from "next/navigation";
+import { buildUrlWithUTMAndLang } from "@/utils/utmUtils";
 
 type ProductCardProps = {
   onBuy?: () => void;
@@ -15,10 +16,13 @@ export const ButtonControl = ({ onBuy }: ProductCardProps) => {
   const router = useRouter();
 
   const currentLang = searchParams.get("lang");
-  const handleReturn = () => {
-    router.push(`/${currentLang ? `?lang=${currentLang}` : ""}`, {
-      scroll: false,
-    });
+
+  const pushUrl = () => {
+    // Gera a URL somente no momento do clique, garantindo que o localStorage já esteja preenchido
+    const baseUrl = `/${currentLang ? `?lang=${currentLang}` : ""}`;
+    const fullUrl = buildUrlWithUTMAndLang(baseUrl);
+
+    router.push(fullUrl, { scroll: false });
   };
 
   return (
@@ -30,7 +34,7 @@ export const ButtonControl = ({ onBuy }: ProductCardProps) => {
         {allData.checkOut.button}
       </Button>
       <Button
-        onClick={handleReturn}
+        onClick={pushUrl}
         variant="outline"
         className="w-full  border-gray-400 text-gray-700 hover:border-[#499537FF] hover:text-[#499537FF]"
       >

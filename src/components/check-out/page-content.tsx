@@ -20,6 +20,7 @@ import { ShippingSummary } from "./shipping-summary";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { buildUrlWithUTMAndLang } from "@/utils/utmUtils";
 
 type PageType = "checkOut" | "thankYou";
 
@@ -43,7 +44,7 @@ export default function CheckOutContent() {
     });
   };
 
-  const [constumerData, setConstumerData] = useState<CostumerFormSchema | null>(
+  const [costumerData, setConstumerData] = useState<CostumerFormSchema | null>(
     null
   );
 
@@ -52,12 +53,26 @@ export default function CheckOutContent() {
   );
 
   const handleBuy = () => {
+    // if (!costumerData || !paymentsData) {
+    //   toast.error(lang === "pt" ? "Preencha os dados" : "Fill in the data");
+
+    //   console.log(costumerData, paymentsData);
+    //   return;
+    // }
+
     toast.success(
       lang === "pt"
         ? "Compra realizada com sucesso!"
         : "Order made successfully!"
     );
     setPage("thankYou");
+  };
+
+  const pushUrl = () => {
+    const baseUrl = `/${currentLang ? `?lang=${currentLang}` : ""}`;
+    const fullUrl = buildUrlWithUTMAndLang(baseUrl);
+
+    router.push(fullUrl, { scroll: false });
   };
 
   return (
@@ -103,8 +118,8 @@ export default function CheckOutContent() {
             />
             <h1 className="md:text-3xl text-xl font-bold">
               {lang === "pt"
-                ? "Obrigado pela compra!"
-                : "Thank you for your order!"}
+                ? `Obrigado pela compras ${costumerData?.name}!`
+                : `Thank you for your order ${costumerData?.name}!`}
             </h1>
             <p className="text-xs">
               {lang === "pt"
@@ -127,21 +142,21 @@ export default function CheckOutContent() {
             <PaymentsSummary
               card={{
                 name: paymentsData?.name || "John Mayer",
-                number: paymentsData?.number || "1234 5678 9012 3456",
+                number: paymentsData?.number || "0000 0000 0000 0000",
               }}
             />
             <ShippingSummary
               address={{
-                city: constumerData?.city || "Campina Grande",
-                country: constumerData?.country || "Brazil",
-                state: constumerData?.state || "Parana",
-                street: constumerData?.street || "Av. Brasil",
+                city: costumerData?.city || "Campina Grande",
+                country: costumerData?.country || "Brazil",
+                state: costumerData?.state || "Parana",
+                street: costumerData?.street || "Av. Brasil",
               }}
             />
           </section>
 
           <Button
-            onClick={handleReturn}
+            onClick={pushUrl}
             variant="outline"
             className="mx-auto  border-gray-400 text-gray-700 hover:border-[#499537FF] hover:text-[#499537FF]"
           >
