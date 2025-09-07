@@ -9,9 +9,7 @@ export const SectionProducts = ({ id }: { id?: string }) => {
   const data = useGetLanguageData();
   const router = useRouter();
 
-  // Função que gera URL e faz push
   const pushUrl = (productId: string) => {
-    // Gera a URL somente no momento do clique, garantindo que o localStorage já esteja preenchido
     const baseUrl = `/check-out?id=${productId}`;
     const fullUrl = buildUrlWithUTMAndLang(baseUrl);
 
@@ -28,7 +26,7 @@ export const SectionProducts = ({ id }: { id?: string }) => {
         <ProductCarrosel
           id={id}
           onClick={(productId) => {
-            pushUrl(productId); // Aqui pega UTMs + lang do storage + url atual
+            pushUrl(productId);
           }}
         />
       </div>

@@ -16,11 +16,6 @@ export const ButtonControl = ({ onBuy }: ProductCardProps) => {
   const router = useRouter();
 
   const currentLang = searchParams.get("lang");
-  const handleReturn = () => {
-    router.push(`/${currentLang ? `?lang=${currentLang}` : ""}`, {
-      scroll: false,
-    });
-  };
 
   const pushUrl = () => {
     // Gera a URL somente no momento do clique, garantindo que o localStorage já esteja preenchido

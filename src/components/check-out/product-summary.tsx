@@ -11,6 +11,7 @@ export const ProductSummary = ({ product }: ProductCardProps) => {
   const allData = useGetLanguageData();
   const lang = allData.lang;
   const data = allData.checkOut.productDetails;
+
   const productPrice = product?.price || 0;
   const shippingPrice = data.shipping?.price || 0;
   const total = productPrice + shippingPrice;

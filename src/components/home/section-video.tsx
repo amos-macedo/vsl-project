@@ -45,14 +45,6 @@ export const SectionVideo = () => {
           </>
         )}
 
-        {/* <div className="relative w-full pt-[56.25%]">
-          <iframe
-            src="/video.mp4"
-            className="absolute top-0 left-0 w-full h-full"
-            title="VSL"
-            allowFullScreen
-          />
-        </div> */}
         <VideoPlayer />
       </div>
     </section>

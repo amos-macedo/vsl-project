@@ -38,6 +38,12 @@ export default function CheckOutContent() {
 
   const currentLang = searchParams.get("lang");
 
+  const handleReturn = () => {
+    router.push(`/${currentLang ? `?lang=${currentLang}` : ""}`, {
+      scroll: false,
+    });
+  };
+
   const [constumerData, setConstumerData] = useState<CostumerFormSchema | null>(
     null
   );
@@ -55,7 +61,7 @@ export default function CheckOutContent() {
     setPage("thankYou");
   };
 
-  const handleReturn = () => {
+  const pushUrl = () => {
     // Gera a URL somente no momento do clique, garantindo que o localStorage já esteja preenchido
     const baseUrl = `/${currentLang ? `?lang=${currentLang}` : ""}`;
     const fullUrl = buildUrlWithUTMAndLang(baseUrl);
@@ -88,12 +94,12 @@ export default function CheckOutContent() {
                 id: product?.id || "",
               }}
             >
-              <ButtonControl onBuy={handleBuy} onReturn={handleReturn} />
+              <ButtonControl onBuy={handleBuy} />
             </ProductInfo>
           </div>
 
           <div className="block md:hidden p-10">
-            <ButtonControl onBuy={handleBuy} onReturn={handleReturn} />
+            <ButtonControl onBuy={handleBuy} />
           </div>
         </>
       ) : (
@@ -144,7 +150,7 @@ export default function CheckOutContent() {
           </section>
 
           <Button
-            onClick={handleReturn}
+            onClick={pushUrl}
             variant="outline"
             className="mx-auto  border-gray-400 text-gray-700 hover:border-[#499537FF] hover:text-[#499537FF]"
           >
