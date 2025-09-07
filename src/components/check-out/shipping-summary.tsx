@@ -1,5 +1,4 @@
 "use client";
-
 import { useGetLanguageData } from "@/utils/language";
 
 type AnddressType = {
