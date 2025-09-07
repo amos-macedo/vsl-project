@@ -1,16 +1,36 @@
 "use client";
 
 import { useGetLanguageData } from "@/utils/language";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Checkbox } from "../ui/checkbox";
 
-export const PaymentsForm = () => {
+export type PaymentsFormSchema = {
+  name: string;
+  number: string;
+  expiration: string;
+  cvv: string;
+};
+export const PaymentsForm = ({
+  onChange,
+}: {
+  onChange?: (data: PaymentsFormSchema) => void;
+}) => {
   const data = useGetLanguageData().checkOut.paymentForm;
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleChange = () => {
+    if (!formRef.current) return;
+
+    const formData = new FormData(formRef.current);
+    const values = Object.fromEntries(formData.entries()) as PaymentsFormSchema;
+    onChange?.(values);
+  };
 
   const [checked, setChecked] = useState(false);
 
   return (
-    <form className="flex flex-col text-xs gap-4 w-full">
+    <form className="flex flex-col text-xs gap-4 w-full md:border border-slate-100 md:p-10 rounded-lg">
       <h1 className="md:text-3xl text-xl font-bold">{data.title}</h1>
 
       <div className="flex gap-1">
@@ -27,13 +47,15 @@ export const PaymentsForm = () => {
       </div>
 
       <div>
-        <div>{data.cardName.label}</div>
+        <div>{data.cardNumber.label}</div>
         <input
           className="w-full my-2 px-3 py-2 rounded-md border border-gray-300"
-          type="text"
-          name="name"
-          placeholder={data.cardName.placeholder}
+          type="number"
+          name="number"
+          maxLength={16}
+          placeholder={data.cardNumber.placeholder}
           required
+          onChange={handleChange}
         />
       </div>
 
@@ -41,10 +63,11 @@ export const PaymentsForm = () => {
         <div>{data.cardName.label}</div>
         <input
           className="w-full my-2 px-3 py-2 rounded-md border border-gray-300"
-          type="email"
-          name="email"
+          type="name"
+          name="text"
           placeholder={data.cardName.placeholder}
           required
+          onChange={handleChange}
         />
       </div>
 
@@ -54,8 +77,11 @@ export const PaymentsForm = () => {
           <input
             className="w-full my-2 px-3 py-2 rounded-md border border-gray-300"
             type="text"
+            name="expiration"
+            maxLength={5}
             placeholder={data.expiration.placeholder}
             required
+            onChange={handleChange}
           />
         </div>
 
@@ -64,8 +90,15 @@ export const PaymentsForm = () => {
           <input
             className="w-full my-2 px-3 py-2 rounded-md border border-gray-300"
             type="number"
+            name="cvv"
+            maxLength={3}
             placeholder={data.cvv.placeholder}
             required
+            onChange={(e) => {
+              const limited = e.target.value.slice(0, 3);
+              e.target.value = limited;
+              handleChange(); // envia pro pai
+            }}
           />
         </div>
       </section>
