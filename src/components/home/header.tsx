@@ -4,6 +4,7 @@ import ButtonLg from "../button-lg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { CaptureUTMs } from "@/utils/utmUtils";
 
 export const Header = ({ hideMenu }: { hideMenu?: boolean }) => {
   const textData = useGetLanguageData();
@@ -57,6 +58,7 @@ export const Header = ({ hideMenu }: { hideMenu?: boolean }) => {
         isVisible || showMobileButton ? "translate-y-0" : "-translate-y-full"
       }`}
     >
+      <CaptureUTMs />
       <div className="flex w-full justify-between items-center p-3 border-b border-gray-100">
         <Image
           className="w-8 h-8 md:w-7"

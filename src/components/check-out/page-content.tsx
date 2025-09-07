@@ -20,6 +20,7 @@ import { ShippingSummary } from "./shipping-summary";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { buildUrlWithUTMAndLang } from "@/utils/utmUtils";
 
 type PageType = "checkOut" | "thankYou";
 
@@ -37,12 +38,6 @@ export default function CheckOutContent() {
 
   const currentLang = searchParams.get("lang");
 
-  const handleReturn = () => {
-    router.push(`/${currentLang ? `?lang=${currentLang}` : ""}`, {
-      scroll: false,
-    });
-  };
-
   const [constumerData, setConstumerData] = useState<CostumerFormSchema | null>(
     null
   );
@@ -58,6 +53,14 @@ export default function CheckOutContent() {
         : "Order made successfully!"
     );
     setPage("thankYou");
+  };
+
+  const handleReturn = () => {
+    // Gera a URL somente no momento do clique, garantindo que o localStorage já esteja preenchido
+    const baseUrl = `/${currentLang ? `?lang=${currentLang}` : ""}`;
+    const fullUrl = buildUrlWithUTMAndLang(baseUrl);
+
+    router.push(fullUrl, { scroll: false });
   };
 
   return (
@@ -85,12 +88,12 @@ export default function CheckOutContent() {
                 id: product?.id || "",
               }}
             >
-              <ButtonControl onBuy={handleBuy} />
+              <ButtonControl onBuy={handleBuy} onReturn={handleReturn} />
             </ProductInfo>
           </div>
 
           <div className="block md:hidden p-10">
-            <ButtonControl onBuy={handleBuy} />
+            <ButtonControl onBuy={handleBuy} onReturn={handleReturn} />
           </div>
         </>
       ) : (
